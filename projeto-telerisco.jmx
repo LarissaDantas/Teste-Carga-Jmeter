@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PCT 1 WebService de Consulta Telerisco - Versão 2" enabled="false">
+      <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador de Iteração" enabled="true">
+        <boolProp name="LoopController.continue_forever">false</boolProp>
+        <stringProp name="LoopController.loops">1</stringProp>
+      </elementProp>
+      <stringProp name="ThreadGroup.num_threads">50</stringProp>
+      <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+      <boolProp name="ThreadGroup.scheduler">false</boolProp>
+      <stringProp name="ThreadGroup.duration"></stringProp>
+      <stringProp name="ThreadGroup.delay"></stringProp>
+      <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+    </ThreadGroup>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">authorization</stringProp>
+            <stringProp name="Header.value">Basic dGVsZXJpc2NvLXNpc3RlbWE6ZjMyNzkzYzgtMzgwZS00MTNhLTljYTEtNDQxM2UyMzQ1ZDk0</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Configuração dos dados CSV" enabled="true">
+        <stringProp name="delimiter">;</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="filename">C:/Users/Larissa/Desktop/teste-automatizado-master/massa/geracao_consultas.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames"></stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PCT 1 WebService de Consulta Telerisco - Versão 2" enabled="true">
+        <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="" elementType="HTTPArgument">
+              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+              <stringProp name="Argument.value">{&#xd;
+    &quot;origemConsulta&quot;: &quot;${origemconsulta}&quot;,&#xd;
+    &quot;cnpjCertificadoDigital&quot;: &quot;${cnpjcertificadodigital}&quot;,&#xd;
+    &quot;cnpjClienteContrato&quot;: &quot;${cnpjclientecontrato}&quot;,&#xd;
+    &quot;cnpjEmbarcador&quot;: &quot;${cnpjembarcador}&quot;,&#xd;
+    &quot;cnpjFilialCliente&quot;: &quot;${cnpjfilialcliente}&quot;,&#xd;
+    &quot;cpfUsuario&quot;: &quot;${cpfusuario}&quot;,&#xd;
+    &quot;motoristaReqDTO&quot;: {&#xd;
+        &quot;cpf&quot;: &quot;${cpfmotorista}&quot;,&#xd;
+        &quot;reToken&quot;: &quot;&quot;,&#xd;
+        &quot;codigoToken&quot;: &quot;&quot;&#xd;
+    },&#xd;
+    &quot;tipoVeiculo&quot;: &quot;${tipoveiculo}&quot;,&#xd;
+    &quot;veiculoReqDTOS&quot;: [&#xd;
+        {&#xd;
+            &quot;placa&quot;: &quot;${placa}&quot;,&#xd;
+            &quot;reSenha&quot;: &quot;${resenha}&quot;,&#xd;
+            &quot;codigoSenha&quot;: &quot;${codigosenha}&quot;,&#xd;
+            &quot;proprietarioReqDTO&quot;: {&#xd;
+                &quot;tipoPessoa&quot;: &quot;${tipopessoa}&quot;,&#xd;
+                &quot;cpf&quot;: &quot;${cpfproprietario}&quot;,&#xd;
+                &quot;cnpj&quot;: &quot;${cnpjproprietario}&quot;,&#xd;
+                &quot;codigoRntrc&quot;: &quot;${codigomtrc}&quot;&#xd;
+            }&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;dadosViagemReqDTO&quot;: {&#xd;
+        &quot;codigoMercadoria&quot;: &quot;${codigomercadoria}&quot;,&#xd;
+        &quot;cidadeOrigem&quot;: {&#xd;
+            &quot;uf&quot;: &quot;${uforigem}&quot;,&#xd;
+            &quot;cidade&quot;: &quot;${cidadeorigem}&quot;&#xd;
+        },&#xd;
+        &quot;cidadeDestino&quot;: {&#xd;
+            &quot;uf&quot;: &quot;${ufdestino}&quot;,&#xd;
+            &quot;cidade&quot;: &quot;${cidadedestino}&quot;&#xd;
+        },&#xd;
+        &quot;faixaCarregamento&quot;: &quot;${faixacarregamento}&quot;&#xd;
+    }&#xd;
+}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">apiprd.telerisco.com.br</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path">/apiconsulta/consulta/internal</stringProp>
+        <stringProp name="HTTPSampler.method">POST</stringProp>
+        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </HTTPSamplerProxy>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
